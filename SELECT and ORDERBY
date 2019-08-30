@@ -1,0 +1,22 @@
+USE MyGuitarShop
+GO
+
+SELECT * FROM Products
+SELECT ProductCode, ProductName, ListPrice, DiscountPercent
+FROM Products
+ORDER BY ListPrice DESC
+
+-- Step 2
+SELECT LastName + ', ' + Firstname AS FullName
+FROM Customers
+WHERE LastName BETWEEN 'M' AND 'Z'
+ORDER BY LastName ASC
+
+-- Step 3
+SELECT ProductName, 
+ListPrice,
+DiscountPercent,
+ListPrice*(DiscountPercent/100) AS DiscountAmount,
+ListPrice-ROUND((ListPrice*DiscountPercent/100),2) AS DiscountPrice
+FROM Products
+ORDER BY DiscountPrice DESC
